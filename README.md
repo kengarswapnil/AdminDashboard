@@ -1,36 +1,122 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Product Admin Dashboard
 
-## Getting Started
+A responsive Product Admin Dashboard built with Next.js, React, TypeScript, Tailwind CSS, Axios, and DummyJSON.
 
-First, run the development server:
+The application provides authentication, product listing, searching, filtering, sorting, pagination, product details, and product CRUD operations.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Axios
+- DummyJSON API
+- Browser Local Storage
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Features
 
-To learn more about Next.js, take a look at the following resources:
+### Authentication
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Login using DummyJSON authentication API
+- Access token stored in Local Storage
+- Axios automatically sends the token with API requests
+- Protected product routes
+- Redirect unauthenticated users to the login page
+- Logout functionality
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Product Dashboard
 
-## Deploy on Vercel
+- Product listing
+- Responsive desktop table
+- Responsive mobile card layout
+- Product title
+- Category
+- Price
+- Stock
+- Rating
+- Product actions
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Search
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Product search using DummyJSON search API
+- Debounced search input
+- Search state synchronized with URL
+- AbortController used to prevent stale search responses from updating the UI
+
+### Filtering and Sorting
+
+- Filter products by category
+- Sort products by:
+  - Price
+  - Rating
+  - Title
+- Filter and sorting state synchronized with URL
+
+### Pagination
+
+- Page navigation
+- 10, 20, or 50 products per page
+- Pagination state synchronized with URL
+- Invalid page handling
+
+### Product Details
+
+Product details page displays:
+
+- Product image
+- Additional images
+- Title
+- Category
+- Brand
+- Price
+- Rating
+- Stock
+- Description
+- Reviews
+
+### Add Product
+
+- Create a new product
+- Form validation
+- Prevent duplicate submissions
+- Product is stored locally because DummyJSON mutations are simulated
+
+### Edit Product
+
+- Edit existing products
+- Form validation
+- Prevent duplicate submissions
+- Local products are updated in Local Storage
+
+### Delete Product
+
+- Delete confirmation
+- Prevent duplicate delete requests
+- Deleted products are removed from the dashboard
+- Deleted API product IDs are stored locally so they do not reappear after refresh
+
+### Error and Loading States
+
+The application handles:
+
+- Loading states
+- API errors
+- Empty product results
+- Product not found
+- Invalid login
+- Form validation errors
+
+---
+
+## Login Credentials
+
+Use the DummyJSON test credentials:
+
+```text
+Username: emilys
+Password: emilyspass
