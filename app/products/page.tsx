@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 import {
@@ -37,7 +37,7 @@ const pageBtn = `min-w-9 shrink-0 rounded-lg border border-slate-300 bg-white px
 // Fetch the whole list once, then filter / sort / paginate on the client.
 const FETCH_ALL = 1000;
 
-export default function ProductsPage() {
+function ProductsPageContent()  {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -834,4 +834,14 @@ export default function ProductsPage() {
       </div>
     </main>
   );
+
 }
+
+export default function ProductsPage() {
+  return (
+    <Suspense fallback={null}>
+      <ProductsPageContent />
+    </Suspense>
+  );
+}
+
